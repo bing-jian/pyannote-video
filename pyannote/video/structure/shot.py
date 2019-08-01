@@ -78,7 +78,7 @@ class Shot(object):
         if OPENCV == 2:
             flow = cv2.calcOpticalFlowFarneback(
                 previous, current, 0.5, 3, 15, 3, 5, 1.1, 0, flow)
-        elif OPENCV == 3:
+        elif OPENCV >= 3:
             flow = cv2.calcOpticalFlowFarneback(
                 previous, current, flow, 0.5, 3, 15, 3, 5, 1.1, 0)
 

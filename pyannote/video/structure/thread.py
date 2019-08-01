@@ -116,7 +116,7 @@ class Thread(object):
         # ORB (non-patented SIFT alternative) extraction
         if OPENCV == 2:
             self._orb = cv2.ORB()
-        elif OPENCV == 3:
+        elif OPENCV >= 3:
             self._orb = cv2.ORB_create()
 
         # # brute-force ORB matching

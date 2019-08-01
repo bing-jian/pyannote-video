@@ -261,7 +261,12 @@ def track(video, shot, output,
         for identifier, track in enumerate(tracking(video, shot)):
 
             for t, (left, top, right, bottom), status in track:
-
+                if left <= 0.001 or top <= 0.001:
+                    continue
+                if right >= 0.999 or bottom >= 0.999:
+                    continue
+                if right - left <= 0.01 or bottom - top <= 0.01:
+                    continue
                 foutput.write(FACE_TEMPLATE.format(
                     t=t, identifier=identifier, status=status,
                     left=left, right=right, top=top, bottom=bottom))
